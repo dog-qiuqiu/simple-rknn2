@@ -1,5 +1,5 @@
 # simple-rknn2
-The rknn2 API uses the secondary encapsulation of the process, which is easy for everyone to call. It is applicable to rk356x rk3588
+* The rknn2 API uses the secondary encapsulation of the process, which is easy for everyone to call. It is applicable to rk356x rk3588
 # RK SDK version
 ```
   sdk version: 1.2.0 (1867aec5b@2022-01-14T15:12:19) driver version: 0.6.4
@@ -15,4 +15,5 @@ The rknn2 API uses the secondary encapsulation of the process, which is easy for
   D RKNNAPI:   DRV: rknnrt: 1.2.0 (1867aec5b@2022-01-14T15:12:19)
   D RKNNAPI: ==============================================
 ```
+* Verified rockchip system software version information that can be run
 # 
