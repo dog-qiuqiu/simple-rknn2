@@ -16,4 +16,14 @@
   D RKNNAPI: ==============================================
 ```
 * Verified rockchip system software version information that can be run
-# 
+# How to compile
+* Take the rk3588 Android platform as an example
+```
+1.Modify the NDK path in the "build android_rk3588.sh" file，As follows:
+  "ANDROID_NDK_PATH=/media/xuehao/0247cd9a-78fe-4129-ad60-00dfec633e2a/software/android-ndk-r17c"
+2.Run .sh compile script
+  "./build-android_RK3588.sh"
+```
+* After compilation, the "Install" folder will be generated
+* In the "install/lib" directory, The .so file is the dependent library required to call rk npu2
+* In the "install/include" directory, The .h file is the interface file to call NPU
