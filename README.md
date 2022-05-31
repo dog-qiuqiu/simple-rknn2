@@ -25,5 +25,60 @@
   "./build-android_RK3588.sh"
 ```
 * After compilation, the "Install" folder will be generated
-* In the "install/lib" directory, The .so file is the dependent library required to call rk npu2
-* In the "install/include" directory, The .h file is the interface file to call NPU
+* In the "install/lib" directory, The .so file is the dependent library required to run NPU
+* In the "install/include" directory, The .h file is the api definition file to run NPU
+# Data structure
+* The data structure is defined in type.h
+```c++
+typedef struct _FeatureMap {
+    int channel;
+    int width;
+    int height;
+    const void *buf;
+} FeatureMap;
+
+```
+
+| Member parameters  | describe                                       
+| -------------------| ------------------------------------------|
+| channel            | feature map tensor channel                |
+| width              | feature map tensor width                  |
+| height             | feature map tensor height                 |
+| buf                | feature map tensor buffer memory address  |
+
+```c++
+typedef struct _InputImg {
+    unsigned char *data;    //图像buffer的地址
+    int width;              //输入图像的宽
+    int height;             //输入图像的高
+} InputImg;eatureMap;
+
+```
+
+| Member parameters  | describe                                       
+| -------------------| ------------------------------------------|
+| width              | image width                               |
+| height             | image height                              |
+| buf                | image buffer memory address               |
+
+
+# API definition
+* The api fun is defined in simple_rknn2.h
+```C++
+int LoadModel(const char *model_path);
+```
+> load rknn model
+
+| Parameter | Description                          |
+| --------- | ------------------------------------ |
+| model_path| **[required]** input .rknn model path|
+
+```C++
+int Forward(const InputImg &src_img, std::vector<FeatureMap> &dst_feature_map);
+```
+> modle forward
+
+| Parameter      | Description                          |
+| ---------------| ------------------------------------ |
+| src_img        | **[required]** input image           |
+| dst_feature_map| **[required]** output feature map    |
