@@ -54,13 +54,13 @@ typedef struct _InputImg {
 } InputImg;eatureMap;
 
 ```
-
 | Member parameters  | describe                                       
 | -------------------| ------------------------------------------|
 | width              | image width                               |
 | height             | image height                              |
 | buf                | image buffer memory address               |
 
+***Only rgb888 or bgr888 three channel images are supported temporarily*** 
 
 # API definition
 * The api fun is defined in simple_rknn2.h
