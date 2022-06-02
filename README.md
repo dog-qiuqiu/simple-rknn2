@@ -59,9 +59,6 @@ typedef struct _InputImg {
 | width              | image width                               |
 | height             | image height                              |
 | buf                | image buffer memory address               |
-
-***Only rgb888 or bgr888 three channel images are supported temporarily*** 
-
 # API definition
 * The api fun is defined in simple_rknn2.h
 ```C++
@@ -76,9 +73,10 @@ int LoadModel(const char *model_path);
 ```C++
 int Forward(const InputImg &src_img, std::vector<FeatureMap> &dst_feature_map);
 ```
-> modle forward
+> model forward
 
 | Parameter      | Description                          |
 | ---------------| ------------------------------------ |
 | src_img        | **[required]** input image           |
 | dst_feature_map| **[required]** output feature map    |
+* ***Only RGB888 or BGR888 three channel images can be input *** 
