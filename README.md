@@ -79,4 +79,5 @@ int Forward(const InputImg &src_img, std::vector<FeatureMap> &dst_feature_map);
 | ---------------| ------------------------------------ |
 | src_img        | **[required]** input image           |
 | dst_feature_map| **[required]** output feature map    |
-* ***Only RGB888 or BGR888 three channel images can be input *** 
+
+* Only RGB888 or BGR888 three channel images can be input
