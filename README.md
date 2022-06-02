@@ -20,7 +20,7 @@
 ## Android platform
 * Take the rk3588 as an example
 ```
-1.Modify the NDK path in the "build android_rk3588.sh" file，As follows:
+1.Modify the NDK path in the "build-android_rk3588.sh" file，As follows:
   "ANDROID_NDK_PATH=/media/xuehao/0247cd9a-78fe-4129-ad60-00dfec633e2a/software/android-ndk-r17c"
 2.Run .sh compile script
   "./build-android_RK3588.sh"
@@ -28,6 +28,7 @@
 * After compilation, the "Install" folder will be generated
 * In the "install/lib" directory, The .so file is the dependent library required to run NPU
 * In the "install/include" directory, The .h file is the api definition file to run NPU
+* RK推荐版本 NDK r17c
 ## Linux platform
 * Take the rk3588 as an example
 ```
@@ -39,6 +40,7 @@
 * After compilation, the "Install" folder will be generated
 * In the "install/lib" directory, The .so file is the dependent library required to run NPU
 * In the "install/include" directory, The .h file is the api definition file to run NPU
+* RK推荐版本 gcc-9.3.0-x86_64_arrch64-linux-gnu
 # Data structure
 * The data structure is defined in type.h
 ```c++
