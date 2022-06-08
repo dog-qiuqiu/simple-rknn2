@@ -239,6 +239,19 @@ int SimpleRKNN2::Forward(const InputImg &src_img, std::vector<FeatureMap> &dst_f
    
     int img_width = src_img.width;
     int img_height = src_img.height;
+    
+    //Determine whether 16 bytes are aligned
+    if(img_width%16 != 0) 
+    {
+        printf("src_img width No alignment of multiples of 16:%d\n",  img_width);
+        return -1;
+    }
+    if(width_%16 != 0)
+    {
+        printf("Model input width_ width No alignment of multiples of 16:%d\n",  img_width);
+        return -1;        
+    }
+    
     /*rga resize*/
     src_ = wrapbuffer_virtualaddr((void *)src_img.data, img_width, img_height, RK_FORMAT_RGB_888);
     dst_ = wrapbuffer_virtualaddr((void *)resize_buf_, width_, height_, RK_FORMAT_RGB_888);

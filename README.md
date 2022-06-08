@@ -17,9 +17,10 @@
 ```
 * Verified rockchip system software version information that can be run
 # How to compile
-* Take the rk3588 Android platform as an example
+## Android platform
+* Take the rk3588 as an example
 ```
-1.Modify the NDK path in the "build android_rk3588.sh" file，As follows:
+1.Modify the NDK path in the "build-android_rk3588.sh" file，As follows:
   "ANDROID_NDK_PATH=/media/xuehao/0247cd9a-78fe-4129-ad60-00dfec633e2a/software/android-ndk-r17c"
 2.Run .sh compile script
   "./build-android_RK3588.sh"
@@ -27,6 +28,19 @@
 * After compilation, the "Install" folder will be generated
 * In the "install/lib" directory, The .so file is the dependent library required to run NPU
 * In the "install/include" directory, The .h file is the api definition file to run NPU
+* RK推荐版本 NDK r17c
+## Linux platform
+* Take the rk3588 as an example
+```
+1.Modify the gcc path in the "build-linux_RK3588.sh" file，As follows:
+  "export TOOL_CHAIN=/media/xuehao/0247cd9a-78fe-4129-ad60-00dfec633e2a/software/gcc-9.3.0-x86_64_arrch64-linux-gnu"
+2.Run .sh compile script
+  "./build-linux_RK3588.sh"
+```
+* After compilation, the "Install" folder will be generated
+* In the "install/lib" directory, The .so file is the dependent library required to run NPU
+* In the "install/include" directory, The .h file is the api definition file to run NPU
+* RK推荐版本 gcc-9.3.0-x86_64_arrch64-linux-gnu
 # Data structure
 * The data structure is defined in type.h
 ```c++
@@ -54,14 +68,11 @@ typedef struct _InputImg {
 } InputImg;eatureMap;
 
 ```
-
 | Member parameters  | describe                                       
 | -------------------| ------------------------------------------|
 | width              | image width                               |
 | height             | image height                              |
 | buf                | image buffer memory address               |
-
-
 # API definition
 * The api fun is defined in simple_rknn2.h
 ```C++
@@ -76,9 +87,11 @@ int LoadModel(const char *model_path);
 ```C++
 int Forward(const InputImg &src_img, std::vector<FeatureMap> &dst_feature_map);
 ```
-> modle forward
+> model forward
 
 | Parameter      | Description                          |
 | ---------------| ------------------------------------ |
 | src_img        | **[required]** input image           |
 | dst_feature_map| **[required]** output feature map    |
+
+* Only RGB888 or BGR888 three channel images can be input
