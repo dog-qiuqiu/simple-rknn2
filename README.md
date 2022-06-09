@@ -74,7 +74,7 @@ typedef struct _InputImg {
 | height             | image height                              |
 | buf                | image buffer memory address               |
 # API definition
-* The api fun is defined in simple_rknn2.h
+* The api fun is defined in simple_rknn2_pimpl.h
 ```C++
 int LoadModel(const char *model_path);
 ```
