@@ -27,5 +27,12 @@ cmake ../.. \
         -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
 make -j4
 make install
-cd ..
+
+cd ../../
+
+DEMO_DIR="demo/*"
+SDK_DIR="install"
+
+cp -rf ${DEMO_DIR} ${SDK_DIR}
+
 

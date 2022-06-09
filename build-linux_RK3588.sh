@@ -34,4 +34,11 @@ cd ${BUILD_DIR}
 cmake ../.. -DCMAKE_SYSTEM_NAME=Linux -DTARGET_SOC=${TARGET_SOC}
 make -j4
 make install
-cd -
+
+cd ../../
+
+DEMO_DIR="demo/*"
+SDK_DIR="install"
+
+cp -rf ${DEMO_DIR} ${SDK_DIR}
+
