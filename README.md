@@ -95,3 +95,44 @@ int Forward(const InputImg &src_img, std::vector<FeatureMap> &dst_feature_map);
 | dst_feature_map| **[required]** output feature map    |
 
 * Only RGB888 or BGR888 three channel images can be input
+# Run Demo
+1.Download opencv.zip,Download link: 链接: https://pan.baidu.com/s/19EfJyMfTLPzlI_mTiRs_SQ 提取码: rn3g \
+2.Unzip opencv.zip and copy to the ***./demo*** directory,The demo directory structure is as follows：
+```
+├── build-android_RK3588.sh
+├── build-linux_RK356X.sh
+├── CMakeLists.txt
+├── dog_224x224.jpg
+├── mobilenetv2_3568.rknn
+├── mobilenetv2_3588.rknn
+├── mobilenetv2.cpp
+└── opencv
+
+```
+3.Compile simple-rknn2 by executing the following command(***Note to modify the compiler path TOOL_CHAIN***),After compilation, the "Install" folder will be generated
+```
+xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2$ ./build-linux_RK356X.sh
+```
+4.Then Compile mobilenetv2 demo，After compilation, corresponding executable files will be generated in the current directory
+```
+cd install
+xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2$ ./build-linux_RK356X.sh
+```
+5.Last run executable
+```
+root@rock-3a:/home/rock/npu# ./mobilenetv2 mobilenetv2_3568.rknn 
+Load model:mobilenetv2_3568.rknn
+sdk version: 1.2.0 (9db21b35d@2022-01-14T15:16:23) driver version: 0.4.2
+model input num: 1, output num: 1
+  index=0, name=data, n_dims=4, dims=[1, 224, 224, 3], n_elems=150528, size=602112, fmt=NHWC, type=FP32, qnt_type=AFFINE, zp=-13, scale=0.018317
+  index=0, name=prob, n_dims=4, dims=[1, 1000, 1, 1], n_elems=1000, size=4000, fmt=NCHW, type=FP32, qnt_type=AFFINE, zp=0, scale=1.000000
+model is NHWC input fmt
+model input height=224, width=224, channel=3
+Rga built version:1.04 788c430+2021-02-24 12:17:35
+Forward time:19.2299995422 ms
+=========================
+index:0 c:1000 h:1 w:1
+category:155 score:0.991211
+=========================
+
+```
