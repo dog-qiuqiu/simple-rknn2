@@ -95,6 +95,7 @@ int Forward(const InputImg &src_img, std::vector<FeatureMap> &dst_feature_map);
 | dst_feature_map| **[required]** output feature map    |
 
 * Only RGB888 or BGR888 three channel images can be input
+* ***API use reference ./demo/mobilenetv2.cpp***
 # Run Demo
 1.Download opencv.zip,Download link: 链接: https://pan.baidu.com/s/19EfJyMfTLPzlI_mTiRs_SQ 提取码: rn3g \
 2.Unzip opencv.zip and copy to the ***./demo*** directory,The demo directory structure is as follows：
@@ -115,7 +116,7 @@ xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2$ ./build-linux_RK356X.sh
 ```
 4.Then Compile mobilenetv2 demo，After compilation, corresponding executable files will be generated in the current directory
 ```
-xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2/install$ cd install
+xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2$ cd install
 xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2/install$ ./build-linux_RK356X.sh
 ```
 5.Last run executable
