@@ -115,8 +115,8 @@ xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2$ ./build-linux_RK356X.sh
 ```
 4.Then Compile mobilenetv2 demo，After compilation, corresponding executable files will be generated in the current directory
 ```
-cd install
-xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2$ ./build-linux_RK356X.sh
+xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2/install$ cd install
+xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2/install$ ./build-linux_RK356X.sh
 ```
 5.Last run executable
 ```
