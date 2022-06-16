@@ -28,7 +28,7 @@ int main(int argc, char * argv[])
 {
 	if (argc != 2)
 	{
-		cout<<"You should use specify rknn model file!"<<endl;
+		printf("You should use specify rknn model file!\n");
 		return -1;
 	}
     printf("Load model:%s\n", argv[1]);
