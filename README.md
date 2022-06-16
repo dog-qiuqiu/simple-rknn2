@@ -33,14 +33,14 @@
 * Take the rk3588 as an example
 ```
 1.Modify the gcc path in the "build-linux_RK3588.sh" file，As follows:
-  "export TOOL_CHAIN=/media/xuehao/0247cd9a-78fe-4129-ad60-00dfec633e2a/software/gcc-9.3.0-x86_64_arrch64-linux-gnu"
+  "export TOOL_CHAIN=/media/xuehao/0247cd9a-78fe-4129-ad60-00dfec633e2a/software/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu"
 2.Run .sh compile script
   "./build-linux_RK3588.sh"
 ```
 * After compilation, the "Install" folder will be generated
 * In the "install/lib" directory, The .so file is the dependent library required to run NPU
 * In the "install/include" directory, The .h file is the api definition file to run NPU
-* RK推荐版本 gcc-9.3.0-x86_64_arrch64-linux-gnu
+* Cross compiler download: 链接: https://pan.baidu.com/s/18auwovQp-PlktEG6w0iMxQ 提取码: 3sv1
 # Data structure
 * The data structure is defined in type.h
 ```c++
