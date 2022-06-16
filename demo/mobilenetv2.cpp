@@ -1,4 +1,5 @@
 #include "stdio.h"
+#include <sys/time.h>
 #include "opencv2/opencv.hpp"
 
 #include "type.h"
@@ -23,13 +24,20 @@ void GetTop(const void *tensor, const int length, int &index, float &score)
     score = max_score;
 }   
 
-int main()
+int main(int argc, char * argv[])
 {
+	if (argc != 2)
+	{
+		cout<<"You should use specify rknn model file!"<<endl;
+		return -1;
+	}
+    printf("Load model:%s\n", argv[1]);
+    
     int ret = -1;
     SimpleRKNN2Pimpl rknn2;
 
     //加载rknn模型
-    ret = rknn2.LoadModel("mobilenetv2.rknn");
+    ret = rknn2.LoadModel(argv[1]);
     if (ret!=0) printf("gg\n");
 
     //读取图片
@@ -41,7 +49,12 @@ int main()
 
     //模型推理
     std::vector<FeatureMap> dst_tensor;
+    struct timeval t1,t2;
+    gettimeofday(&t1, NULL);
     ret = rknn2.Forward(input_img, dst_tensor);
+    gettimeofday(&t2, NULL);
+    float time_use=(t2.tv_sec-t1.tv_sec)*1000000+(t2.tv_usec-t1.tv_usec);
+    printf("Forward time:%.10f ms\n", time_use / 1000);
 
     //遍历模型输出节点
     for (int i = 0; i < dst_tensor.size(); i++)

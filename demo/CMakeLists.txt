@@ -10,9 +10,26 @@ set(RGA_LIB ${CMAKE_SOURCE_DIR}/lib//librga.so)
 # rknn api
 set(RKNN_RT_LIB ${CMAKE_SOURCE_DIR}/lib/librknnrt.so)
 # simple rknn
-set(SIMPLE_RKNN2_LIB ${CMAKE_SOURCE_DIR}/lib/libSimpleRKNN2.so)
+set(SIMPLE_RKNN2_LIB ${CMAKE_SOURCE_DIR}/lib/libsimple_rknn2.so)
+
+if (CMAKE_C_COMPILER MATCHES "aarch64")
+  set(LIB_ARCH aarch64)
+else()
+  set(LIB_ARCH armhf)
+endif()
+
+message(STATUS "ARCH ABI:${LIB_ARCH}")
+
 # opencv
-set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/OpenCV-android-sdk/sdk/native/jni/abi-${CMAKE_ANDROID_ARCH_ABI})
+if (CMAKE_SYSTEM_NAME STREQUAL "Android")
+    set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/OpenCV-android-sdk/sdk/native/jni/abi-${CMAKE_ANDROID_ARCH_ABI})
+else()
+  if(LIB_ARCH STREQUAL "armhf")
+    set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/opencv-linux-armhf/share/OpenCV)
+  else()
+    set(OpenCV_DIR ${CMAKE_SOURCE_DIR}/opencv/opencv-linux-aarch64/share/OpenCV)
+  endif()
+endif()
 find_package(OpenCV REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)

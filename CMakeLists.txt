@@ -12,6 +12,9 @@ set(CMAKE_SKIP_INSTALL_RPATH FALSE)
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 
+message(STATUS "TARGET_SOC is:${TARGET_SOC}")
+message(STATUS "SYSTEM NAME is:${CMAKE_SYSTEM_NAME}")
+
 # rknn api
 if(TARGET_SOC STREQUAL "rk356x")
   set(RKNN_API_PATH ${CMAKE_SOURCE_DIR}/3rdparty/runtime/RK356X/${CMAKE_SYSTEM_NAME}/librknn_api)
@@ -57,18 +60,18 @@ include_directories( ${RGA_PATH}/include)
 include_directories( ${CMAKE_SOURCE_DIR}/include)
 include_directories( ${CMAKE_SOURCE_DIR}/src/include)
 
-ADD_LIBRARY(SimpleRKNN2 SHARED
+ADD_LIBRARY(simple_rknn2 SHARED
             src/simple_rknn2_pimpl.cpp
             src/simple_rknn2.cpp
 )
 
-target_link_libraries(SimpleRKNN2
+target_link_libraries(simple_rknn2
 	${RKNN_RT_LIB}
   ${RGA_LIB}
 )
 
 # install
-install(TARGETS SimpleRKNN2 DESTINATION lib)
+install(TARGETS simple_rknn2 DESTINATION lib)
 install(PROGRAMS ${RKNN_RT_LIB} DESTINATION lib)
 install(PROGRAMS ${RGA_LIB} DESTINATION lib)
 install(DIRECTORY include DESTINATION ./)
