@@ -121,6 +121,7 @@ xuehao@xuehao-Z370-HD3:~/Desktop/simple-rknn2/install$ ./build-linux_RK356X.sh
 ```
 5.Last run executable
 ```
+rock@rock-3a:/home/rock/npu# sudo -i
 root@rock-3a:/home/rock/npu# ./mobilenetv2 mobilenetv2_3568.rknn 
 Load model:mobilenetv2_3568.rknn
 sdk version: 1.2.0 (9db21b35d@2022-01-14T15:16:23) driver version: 0.4.2
@@ -137,3 +138,4 @@ category:155 score:0.991211
 =========================
 
 ```
+* 注意加上sudo或者切换到root用户下运行，否则或提示没有权限调用RGA
