@@ -65,7 +65,7 @@ typedef struct _InputImg {
     unsigned char *data;    //图像buffer的地址
     int width;              //输入图像的宽
     int height;             //输入图像的高
-} InputImg;eatureMap;
+} InputImg;
 
 ```
 | Member parameters  | describe                                       
